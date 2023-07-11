@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibonacci</title>
+</head>
+<body>
+  <script>
+    // Memasang Keramik
+    // Fibonacci ada yang bisa dimulai dari deret angka 0
+    // dikasus ini bilangan pertamanya 1
+
+    let n1 = 1;
+    let n2 = 2;
+    let next = 0;
+
+    for(let i = 1; i <= 5; i++){
+      console.log(n1);
+      next = n1 + n2;
+      n1 = n2;
+      n2 = next;
+    }
+
+    // kita bikin menjadi lebih modular
+    // kita abstraksi lagi menjadi sebuah function
+    function fibonacci(num){
+      let n1 = 1;
+      let n2 = 2;
+      let next = 0;
+
+      for(let i = 1; i <= num; i++){
+        console.log(n1);
+        next = n1 + n2;
+        n1 = n2;
+        n2 = next;
+      }
+    }
+
+    fibonacci(7);
+
+    // rekursi
+    // sebuah kode yang rekursif
+    // Rekursif : sebuah fungsi yang didalamnya memanggil dirinya sendiri
+
+    function fibo(num){
+      if(num <= 2){
+        return num;
+      } else {
+        // selain itu
+        return fibo(num -1 ) + fibo(num - 2);
+      }
+    }
+    for(let i = 1; i <= 10; i++){
+      console.log(fibo(i))
+    }
+
+    // js modern > arrow function
+    // teknik refactoring > menyingkat kode
+
+    const fib = (num) => (num <= 2 ? num : fib(num-1)+fib(num-2))
+
+    for(let i = 1; i <= 10; i++){
+      console.log(fib(i))
+    }
+    
+
+  </script>
+</body>
+</html>
